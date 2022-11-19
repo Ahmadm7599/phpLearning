@@ -18,11 +18,8 @@ $routes =[
 ];
 function routeToControllers($url, $routes)
 {
-if (array_key_exists($url, $routes)) {
-require($routes[$url]);
-} else {
-abort();
-}
+if (array_key_exists($url, $routes)) require($routes[$url]); 
+else abort();
 }
 
 routeToControllers($url , $routes);
