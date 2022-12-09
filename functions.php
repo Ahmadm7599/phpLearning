@@ -1,8 +1,7 @@
 <?php
 function dd($v)
 {
-    echo '
-    <pre>';
+    echo '<pre>';
     var_dump($v);
     echo '</pre>';
     die();  

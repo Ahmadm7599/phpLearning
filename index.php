@@ -5,11 +5,13 @@ require("database/Database.php");
 
 $config = require("config.php");
 $db = new Database($config['database']);
-$posts = $db->query("select * from posts")->fetchAll();
-foreach ($posts as $post) {
-    echo "<li>" . $post['title'] . "</li>";
-}
 
-$post = $db->query("select * from posts where id == 2")->fetch();
-
-dd($post);
+// avoid sql injection
+// first way
+// $id = $_GET['id'];
+// $posts = $db->query("select * from posts where id = ?", [$id])->fetchAll();
+// dd($posts);
+// second way 
+$id = $_GET['id'];
+$posts = $db->query("select * from posts where id = :id", [':id' => $id])->fetchAll();
+dd($posts);
