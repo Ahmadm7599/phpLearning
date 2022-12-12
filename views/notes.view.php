@@ -7,10 +7,11 @@
           <?php foreach($notes as $note): ?>
             <li>
               <a class="text-blue-500 hover:underline" href="/note?id=<?= $note['id'] ?>">
-                <?= $note['body'] ?>
+                <?= htmlentities($note['body']) ?>
               </a>
             </li>
           <?php endforeach; ?> 
+          <div><a class="text-red-500" href="/note/create">create new note</a></div>
         </div>
     </div>
 </main>
