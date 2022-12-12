@@ -16,3 +16,10 @@ function abort($statusCode = 404)
     require("views/{$statusCode}.php");
     die();
 }
+function autorized($conditin , $statusCode = Response::FORBBIDEN)
+{
+    if (!$conditin)
+    {
+        abort($statusCode);
+    }
+}
