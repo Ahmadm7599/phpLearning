@@ -12,6 +12,8 @@
 
                         <a href="/about" class="<?= UrlIS('/about')? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' ?> px-3 py-2 rounded-md text-sm font-medium">AboutUS</a>
 
+                        <a href="/notes" class="<?= UrlIS('/notes')? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' ?> px-3 py-2 rounded-md text-sm font-medium">Note</a>
+
                         <a href="/contact" class=" <?= UrlIS('/contact') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'  ?> px-3 py-2 rounded-md text-sm font-medium">ContactUs</a>
                     </div>
                 </div>
