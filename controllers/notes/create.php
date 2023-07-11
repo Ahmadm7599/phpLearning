@@ -7,7 +7,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
 {
     $db = new Database($config['database']);
     $errors = [];
-    if(Validator::string($_POST['body']))
+    if(!Validator::string($_POST['body'],1,1000))
     {
         $errors['body'] = 'body is incorrect!';
     }
@@ -16,7 +16,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
         'body' => $_POST['body'],
         'user_id' => 1
     ]);
+        header('Location:/notes');
 }
 }
 
-require("views/note-create.view.php");
+require("views/notes/create.view.php");

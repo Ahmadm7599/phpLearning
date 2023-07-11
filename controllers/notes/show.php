@@ -7,4 +7,4 @@ $heading = "note";
 
 $note = $db->query("select * from notes where id = :id" ,['id' => $_GET['id']])->findOrFail();
 autorized($note['user_id']==$currentUserId);
-require("views/note.view.php");
+require("views/notes/show.view.php");
