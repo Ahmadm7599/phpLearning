@@ -4,10 +4,19 @@ $config = require base_path('config.php');
 $db = new Database($config['database']);
 
 $currentUserId = 1;
-
-$note = $db->query("select * from notes where id = :id" ,['id' => $_GET['id']])->findOrFail();
-autorized($note['user_id']==$currentUserId);
-view("notes/show.view.php", [
-    'heading' => 'Note',
-    'note' => $note
-]);
+if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $note = $db->query("select * from notes where id = :id", ['id' => $_GET['id']])->findOrFail();
+    autorized($note['user_id'] == $currentUserId);
+    $db->query("delete from notes where id = :id" ,[
+        "id" => $note['id'],
+    ]);
+    header("location: /notes");
+    exit();
+} else {
+    $note = $db->query("select * from notes where id = :id", ['id' => $_GET['id']])->findOrFail();
+    autorized($note['user_id'] == $currentUserId);
+    view("notes/show.view.php", [
+        'heading' => 'Note',
+        'note' => $note
+    ]);
+}

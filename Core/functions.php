@@ -23,6 +23,7 @@ function autorized($conditin , $statusCode = Response::FORBBIDEN)
     {
         abort($statusCode);
     }
+    return true;
 }
 
 function base_path($path)

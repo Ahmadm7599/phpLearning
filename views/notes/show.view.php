@@ -6,6 +6,13 @@
     <div class="px-4 py-6 sm:px-0">
       <a class="text-blue-400 underline" href="/notes">go back</a>
       <p class="mt-4"><?= htmlspecialchars($note['body']) ?></p>
+      <div>
+        <form method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="hidden" name="id" value="<?= $note['id'] ?>">
+          <button class="text-sm font-bold text-red-500 mt-4">delete</button>
+        </form>
+      </div>
     </div>
   </div>
 </main>
