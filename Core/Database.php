@@ -1,4 +1,6 @@
 <?php
+namespace Core;
+use PDO;
 class Database {
     public $connection;
     public $statement;
@@ -10,11 +12,6 @@ class Database {
         $this->connection = new PDO($dsn, 'root' , '' , [
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
         ]);
-
-        // sqlite connection with pdo
-        // $this->connection = new PDO("sqlite:database/database.sqlite", 'root' , '' , [
-        //     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-        //     ]);
         $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
     public function query($query , $params=[])

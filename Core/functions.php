@@ -1,4 +1,5 @@
 <?php
+use Core\Response;
 function dd($v)
 {
     echo '<pre>';
@@ -13,7 +14,7 @@ function UrlIS($url)
 function abort($statusCode = 404)
 {
     http_response_code($statusCode);
-    require("views/{$statusCode}.php");
+    require base_path("views/{$statusCode}.php");
     die();
 }
 function autorized($conditin , $statusCode = Response::FORBBIDEN)
